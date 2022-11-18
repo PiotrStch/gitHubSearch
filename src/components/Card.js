@@ -18,23 +18,25 @@ const Card = () => {
 		<Wrapper>
 			<header>
 				<img src={avatar_url} alt={name} />
-        <div>
-          <h4>{name}</h4>
-          <p>@{twitter_username || "brak twittera"}</p>
-          
-        </div>
-        <a href={html_url}>obserwój</a>
+				<div>
+					<h4>{name}</h4>
+					<p>@{twitter_username || "brak twittera"}</p>
+				</div>
+				<a href={html_url}>obserwój</a>
 			</header>
-      <p className="bio">{bio}</p>
-      <div className="links">
-        <p>
-          <MdBusiness></MdBusiness> {company}
-        </p>
-        <p>
-          <MdLocationOn></MdLocationOn> {location || "ZasiedmioGóroGród"}
-        </p>
-        <a href={`https://${blog}`}><MdLink></MdLink>{blog}</a>
-      </div>
+			<p className='bio'>{bio}</p>
+			<div className='links'>
+				<p>
+					<MdBusiness></MdBusiness> {company}
+				</p>
+				<p>
+					<MdLocationOn></MdLocationOn> {location || "ZasiedmioGóroGród"}
+				</p>
+				<a href={`https://${blog}`}>
+					<MdLink></MdLink>
+					{blog}
+				</a>
+			</div>
 		</Wrapper>
 	);
 };
