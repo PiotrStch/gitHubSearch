@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import mockUser from './mockData.js/mockUser';
-import mockRepos from './mockData.js/mockRepos';
-import mockFollowers from './mockData.js/mockFollowers';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import mockUser from "./mockData.js/mockUser";
+import mockRepos from "./mockData.js/mockRepos";
+import mockFollowers from "./mockData.js/mockFollowers";
+import axios from "axios";
 
-const rootUrl = 'https://api.github.com';
+const rootUrl = "https://api.github.com";
 
 const GithubContext = React.createContext();
 
-//provider i consumer
+const GithubProvider = ({ children }) => {
+	const [githubUser, setGithubUser] = useState(mockUser);
+	const [repos, setRepos] = useState(mockRepos);
+	const [followers, setfollowers] = useState(mockFollowers);
+	return (
+		<GithubContext.Provider value={{githubUser, repos, followers}}>{children}</GithubContext.Provider>
+	);
+};
 
-const GithubProvider = ({children}) => {
-    return<GithubContext.Provider>{children}</GithubContext.Provider>
-}
-//to powyżej wrzuca całą aplikację jako children w context API
+export { GithubProvider, GithubContext };
